@@ -1,0 +1,11 @@
+.venv/
+.tools/
+__pycache__/
+*.pyc
+data/
+.env
+env.txt
+env.txt.*
+*.env
+cookies*.txt
+*.token

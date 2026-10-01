@@ -1,0 +1,13 @@
+# WhisperX's supported PyTorch family, with compatible Transformers 4.x.
+# setup.ps1 installs the CPU PyTorch wheels first.
+whisperx==3.8.6
+faster-whisper==1.2.1
+torch==2.8.0
+torchaudio==2.8.0
+torchvision==0.23.0
+torchcodec==0.7.0
+transformers==4.57.6
+pyannote.audio==4.0.7
+yt-dlp[default,curl-cffi]==2026.8.19
+curl-cffi==0.16.3
+psutil>=7.0,<8

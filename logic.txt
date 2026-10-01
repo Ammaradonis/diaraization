@@ -1,0 +1,14 @@
+the official boss of this PowerShell-based diarization tool is: https://github.com/m-bain/whisperx
+
+we are not interested in complications at all.
+
+the end result is: we open "C:\Users\FingerWeg\CascadeProjects\diaraization" in our PS terminal, paste a command to let the tool work on "C:\Users\FingerWeg\CascadeProjects\diaraization\jobs.txt" that has multiple YouTube/Rumble video URLs, let 3 workers process at a time, and let the output go to "C:\Users\FingerWeg\CascadeProjects\diaraization\data\out" as a .txt file whose headline will be taken from the actual video.
+
+Rumble is important.
+
+timestamps are actually needed. most of the video URLs are podcasts and interviews. the number of speakers in each video is 5+
+
+For multi-speaker YouTube transcripts you want "speaker diarization", not just basic transcript downloaders.
+  `"transcribe YouTube podcast interview" multiple speakers separated transcript tool`.
+ `intitle:"YouTube to transcript" "speaker 1" "speaker 2" AI`.
+
