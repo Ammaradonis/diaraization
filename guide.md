@@ -2,6 +2,9 @@
 
 This tool downloads YouTube and Rumble recordings, transcribes them with **WhisperX**, aligns the words, detects speakers with **pyannote**, and writes a UTF-8 `.txt` file for each video. The first line is the actual video title. Each speech turn has start/end timestamps and a speaker label.
 
+
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+
 ## Main command
 
 Your existing `env.txt` is loaded automatically. Open PowerShell and paste:

@@ -12,6 +12,7 @@ $ProgressPreference = 'SilentlyContinue'
 $root = $PSScriptRoot
 $toolsDir = Join-Path $root '.tools'
 $bootstrap = Join-Path $toolsDir 'bootstrap'
+$venvDir = Join-Path $root '.venv'
 $python = Join-Path $root '.venv\Scripts\python.exe'
 $env:UV_PYTHON_INSTALL_DIR = Join-Path $toolsDir 'python'
 $env:UV_CACHE_DIR = Join-Path $toolsDir 'uv-cache'
@@ -41,10 +42,19 @@ if (-not $uv) {
 if (-not $uv) { throw 'Could not locate uv.exe in .tools\bootstrap.' }
 $uv = $uv[0]
 
+if (Test-Path -LiteralPath $python) {
+    $venvVersion = (& $python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')").Trim()
+    Assert-NativeSuccess 'Checking the existing virtual environment'
+    if ($venvVersion -ne '3.12') {
+        Write-Host "Existing .venv uses Python $venvVersion; recreating it with Python 3.12..."
+        Remove-Item -LiteralPath $venvDir -Recurse -Force
+    }
+}
+
 if (-not (Test-Path -LiteralPath $python)) {
     & $uv python install 3.12
     Assert-NativeSuccess 'Installing Python 3.12'
-    & $uv venv --python 3.12 (Join-Path $root '.venv')
+    & $uv venv --python 3.12 $venvDir
     Assert-NativeSuccess 'Creating .venv'
 }
 
